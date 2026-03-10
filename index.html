@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EarnShake — Get Paid For Your Handshake AI Account</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Instrument+Sans:ital,opsz,wght@0,4..9,400;0,4..9,500;0,4..9,600;1,4..9,400&display=swap" rel="stylesheet">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Instrument+Sans:ital,opsz,wght@0,4..9,400;0,4..9,500;0,4..9,600;1,4..9,400&display=swap');
+</style>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --bg: #050c08;
+  --surface: #0a1510;
+  --surface2: #0f1e14;
+  --green: #16a34a;
+  --green-bright: #22c55e;
+  --green-pale: #86efac;
+  --gold: #d97706;
+  --gold-bright: #f59e0b;
+  --white: #f0fdf4;
+  --muted: #6b8f72;
+  --border: rgba(34,197,94,0.12);
+  --border2: rgba(34,197,94,0.25);
+}
+
+body {
+  background: var(--bg);
+  color: var(--white);
+  font-family: 'Instrument Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--green); }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 3.5rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(5,12,8,0.95);
+  backdrop-filter: blur(20px);
+}
+.logo {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: 1.5rem; letter-spacing: -0.04em;
+}
+.logo span { color: var(--green-bright); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  color: var(--muted); text-decoration: none;
+  font-size: 0.875rem; font-weight: 500; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-cta {
+  background: var(--green); border: none; color: #fff;
+  padding: 0.6rem 1.6rem; font-family: 'Instrument Sans', sans-serif;
+  font-size: 0.875rem; font-weight: 700; cursor: pointer;
+  border-radius: 4px; transition: all 0.2s;
+}
+.nav-cta:hover { background: var(--green-bright); transform: translateY(-1px); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 130px 2rem 5rem;
+  position: relative; overflow: hidden;
+}
+.hero-glow {
+  position: absolute; width: 900px; height: 900px;
+  background: radial-gradient(circle, rgba(34,197,94,0.09) 0%, transparent 65%);
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.hero-glow2 {
+  position: absolute; width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(245,158,11,0.07) 0%, transparent 65%);
+  bottom: 10%; right: 10%; pointer-events: none;
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(34,197,94,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34,197,94,0.04) 1px, transparent 1px);
+  background-size: 60px 60px; pointer-events: none;
+}
+
+/* floating dollars */
+.floaters { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.floater {
+  position: absolute; color: rgba(34,197,94,0.07);
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  animation: floatUp linear infinite;
+}
+@keyframes floatUp {
+  0% { transform: translateY(100vh); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 0.6; }
+  100% { transform: translateY(-5vh); opacity: 0; }
+}
+
+.badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  border: 1px solid rgba(34,197,94,0.3);
+  background: rgba(34,197,94,0.07);
+  color: var(--green-bright); padding: 0.38rem 1rem;
+  font-size: 0.73rem; letter-spacing: 0.14em; text-transform: uppercase;
+  font-weight: 600; margin-bottom: 1.8rem;
+  animation: fadeDown 0.6s ease both;
+}
+.badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green-bright); animation: blink 1.4s infinite; }
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0.2;} }
+
+h1 {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 0.93; letter-spacing: -0.04em;
+  max-width: 920px; margin: 0 auto 1.6rem;
+  animation: fadeDown 0.7s ease 0.1s both;
+}
+h1 .g { color: var(--green-bright); }
+h1 .go { color: var(--gold-bright); }
+
+/* ── EYE-CATCHING HEADLINE STYLES ── */
+.h1-top {
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  color: var(--muted);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  display: inline-block;
+  animation: fadeDown 0.7s ease 0.05s both;
+}
+.h1-mid {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  animation: fadeDown 0.7s ease 0.15s both;
+}
+.h1-arrow {
+  color: var(--green-bright);
+  font-size: clamp(2rem, 5vw, 4rem);
+  animation: arrowPulse 1.2s ease-in-out infinite;
+  display: inline-block;
+}
+@keyframes arrowPulse {
+  0%,100% { transform: translateX(0); opacity: 1; }
+  50% { transform: translateX(8px); opacity: 0.6; }
+}
+.h1-money {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: linear-gradient(135deg, #14532d 0%, #166534 50%, #14532d 100%);
+  border: 2px solid var(--green-bright);
+  padding: 0.1em 0.4em;
+  border-radius: 6px;
+  box-shadow: 0 0 40px rgba(34,197,94,0.3), inset 0 1px 0 rgba(134,239,172,0.2);
+  animation: glowPulse 2s ease-in-out infinite;
+}
+@keyframes glowPulse {
+  0%,100% { box-shadow: 0 0 30px rgba(34,197,94,0.25), inset 0 1px 0 rgba(134,239,172,0.15); }
+  50% { box-shadow: 0 0 60px rgba(34,197,94,0.5), inset 0 1px 0 rgba(134,239,172,0.3); }
+}
+.h1-cash {
+  background: linear-gradient(90deg, #4ade80, #22c55e, #86efac, #22c55e, #4ade80);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmerText 2.5s linear infinite;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+}
+@keyframes shimmerText {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+.money-shimmer {
+  color: rgba(134,239,172,0.4);
+  font-size: clamp(1.2rem, 2.5vw, 2rem);
+  animation: moneyBlink 1.8s ease-in-out infinite;
+  letter-spacing: -0.05em;
+}
+.money-shimmer:last-child { animation-delay: 0.6s; }
+@keyframes moneyBlink {
+  0%,100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+.h1-bottom {
+  font-size: clamp(2rem, 5vw, 4rem);
+  color: var(--white);
+  letter-spacing: 0.04em;
+  animation: fadeDown 0.7s ease 0.25s both;
+  display: inline-block;
+}
+.h1-single {
+  color: var(--gold-bright);
+  text-decoration: underline;
+  text-decoration-color: rgba(245,158,11,0.4);
+  text-underline-offset: 4px;
+}
+
+.hero-sub {
+  max-width: 560px; margin: 0 auto 1rem;
+  color: var(--muted); font-size: 1.1rem; line-height: 1.72;
+  animation: fadeDown 0.7s ease 0.2s both;
+}
+.hero-sub strong { color: var(--white); font-weight: 600; }
+
+.hero-sub2 {
+  max-width: 500px; margin: 0 auto 2.8rem;
+  color: var(--muted); font-size: 0.92rem; line-height: 1.65;
+  animation: fadeDown 0.7s ease 0.25s both;
+  border-left: 2px solid var(--border2);
+  padding-left: 1rem; text-align: left;
+}
+
+.hero-btns {
+  display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+  animation: fadeDown 0.7s ease 0.3s both;
+}
+.btn-big {
+  padding: 1rem 2.6rem; font-size: 1.05rem; font-weight: 700;
+  font-family: 'Instrument Sans', sans-serif;
+  cursor: pointer; border-radius: 5px; transition: all 0.2s;
+}
+.btn-green { background: var(--green); border: none; color: #fff; }
+.btn-green:hover { background: var(--green-bright); transform: translateY(-2px); box-shadow: 0 14px 40px rgba(34,197,94,0.3); }
+.btn-out { background: none; border: 1px solid var(--border2); color: var(--muted); }
+.btn-out:hover { border-color: var(--green-bright); color: var(--white); }
+
+/* stats row */
+.hero-stats {
+  display: flex; gap: 0; margin-top: 5rem; flex-wrap: wrap;
+  border: 1px solid var(--border); width: 100%; max-width: 700px;
+  animation: fadeDown 0.7s ease 0.45s both;
+}
+.stat {
+  flex: 1; text-align: center; padding: 1.4rem 1rem;
+  border-right: 1px solid var(--border);
+}
+.stat:last-child { border-right: none; }
+.stat-n {
+  font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2rem; line-height: 1;
+}
+.stat-n.g { color: var(--green-bright); }
+.stat-n.go { color: var(--gold-bright); }
+.stat-l { color: var(--muted); font-size: 0.75rem; margin-top: 0.35rem; letter-spacing: 0.06em; text-transform: uppercase; }
+
+@keyframes fadeDown {
+  from { opacity:0; transform:translateY(-18px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+/* ── SECTIONS ── */
+.section { padding: 6rem 3.5rem; max-width: 1180px; margin: 0 auto; }
+.sec-label {
+  font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--green-bright); font-weight: 600; margin-bottom: 0.65rem;
+}
+.sec-title {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  letter-spacing: -0.03em; margin-bottom: 0.85rem;
+}
+.sec-sub {
+  color: var(--muted); font-size: 0.97rem; max-width: 480px;
+  line-height: 1.68; margin-bottom: 3rem;
+}
+
+/* ── HOW IT WORKS ── */
+.steps-grid {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  gap: 1px; background: var(--border); border: 1px solid var(--border);
+}
+.step {
+  background: var(--surface); padding: 2.4rem 1.8rem;
+  position: relative; overflow: hidden; transition: background 0.25s;
+}
+.step::after {
+  content:''; position: absolute; top:0; left:0; right:0; height:2px;
+  background: linear-gradient(90deg, transparent, var(--green-bright), transparent);
+  opacity:0; transition: opacity 0.3s;
+}
+.step:hover { background: var(--surface2); }
+.step:hover::after { opacity:1; }
+.step-n {
+  font-family: 'Syne', sans-serif; font-weight: 800;
+  font-size: 5rem; color: rgba(34,197,94,0.05);
+  line-height: 1; margin-bottom: 0.7rem;
+}
+.step-icon { font-size: 2rem; margin-bottom: 0.9rem; }
+.step h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.02rem; margin-bottom: 0.55rem; }
+.step p { color: var(--muted); font-size: 0.84rem; line-height: 1.62; }
+.step .tag {
+  display: inline-block; margin-top: 0.9rem;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--green-bright); background: rgba(34,197,94,0.08);
+  border: 1px solid rgba(34,197,94,0.2); padding: 0.2rem 0.6rem;
+}
+
+/* ── EARNINGS CALCULATOR ── */
+.calc-band {
+  background: var(--surface);
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  padding: 5.5rem 3.5rem;
+}
+.calc-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.calc-box {
+  border: 1px solid var(--border2); background: var(--surface2); padding: 2.5rem;
+}
+.calc-title { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; margin-bottom: 1.8rem; }
+
+.calc-row { margin-bottom: 1.5rem; }
+.calc-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; display: flex; justify-content: space-between; }
+.calc-label span { color: var(--green-bright); font-size: 0.88rem; }
+input[type=range] {
+  width: 100%; accent-color: var(--green-bright);
+  height: 4px; cursor: pointer;
+}
+
+.calc-result {
+  margin-top: 2rem;
+  border-top: 1px solid var(--border); padding-top: 1.8rem;
+}
+.calc-result-row {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 0.8rem;
+}
+.cr-label { color: var(--muted); font-size: 0.88rem; }
+.cr-val { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.5rem; }
+.cr-val.g { color: var(--green-bright); }
+.cr-val.go { color: var(--gold-bright); }
+.cr-note { font-size: 0.78rem; color: var(--muted); margin-top: 1rem; line-height: 1.6; }
+.cr-note strong { color: var(--white); }
+
+/* ── WHY TRUST US ── */
+.perks-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+.perk {
+  border: 1px solid var(--border); padding: 2rem;
+  background: var(--surface); transition: all 0.25s; position: relative;
+}
+.perk:hover { border-color: var(--border2); background: var(--surface2); }
+.perk-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+.perk h3 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; margin-bottom: 0.5rem; }
+.perk p { color: var(--muted); font-size: 0.84rem; line-height: 1.65; }
+
+/* ── EARNINGS EXAMPLES ── */
+.examples-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+.ex-card {
+  border: 1px solid var(--border); background: var(--surface); padding: 1.8rem;
+  transition: all 0.2s;
+}
+.ex-card:hover { border-color: var(--border2); background: var(--surface2); }
+.ex-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.2rem; }
+.ex-name { font-weight: 700; font-size: 0.97rem; }
+.ex-school { color: var(--muted); font-size: 0.78rem; margin-top: 0.15rem; }
+.ex-badge {
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.2rem 0.6rem; border: 1px solid rgba(34,197,94,0.25); color: var(--green-bright);
+  background: rgba(34,197,94,0.07);
+}
+.ex-jobs { color: var(--muted); font-size: 0.84rem; line-height: 1.65; margin-bottom: 1.4rem; }
+.ex-payout {
+  border-top: 1px solid var(--border); padding-top: 1.2rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.ex-payout-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.ex-amount {
+  font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.6rem;
+  color: var(--green-bright);
+}
+.ex-period { font-size: 0.72rem; color: var(--muted); }
+
+/* ── FAQ ── */
+.faq-wrap { max-width: 780px; }
+.faq-item { border-bottom: 1px solid var(--border); padding: 1.4rem 0; cursor: pointer; }
+.faq-q {
+  display: flex; justify-content: space-between; align-items: center;
+  font-weight: 600; font-size: 0.97rem; gap: 1rem;
+}
+.faq-q .arr { color: var(--green-bright); font-size: 1.3rem; transition: transform 0.25s; flex-shrink: 0; }
+.faq-item.open .arr { transform: rotate(45deg); }
+.faq-a {
+  color: var(--muted); font-size: 0.88rem; line-height: 1.72;
+  max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.3s;
+}
+.faq-item.open .faq-a { max-height: 250px; padding-top: 0.9rem; }
+.faq-a strong { color: var(--white); }
+
+/* ── SIGNUP FORM ── */
+.signup-band {
+  background: var(--surface);
+  border-top: 1px solid var(--border2); border-bottom: 1px solid var(--border2);
+  padding: 6rem 3.5rem;
+}
+.signup-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+.signup-left h2 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(1.9rem, 4vw, 2.8rem); letter-spacing: -0.03em; margin-bottom: 0.8rem; }
+.signup-left h2 span { color: var(--green-bright); }
+.signup-left p { color: var(--muted); font-size: 0.97rem; line-height: 1.7; margin-bottom: 1.5rem; }
+.checklist { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+.checklist li { display: flex; align-items: center; gap: 0.65rem; font-size: 0.9rem; color: var(--muted); }
+.checklist li::before { content: '✓'; color: var(--green-bright); font-weight: 700; font-size: 0.9rem; flex-shrink: 0; }
+
+.signup-form { display: flex; flex-direction: column; gap: 1rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.45rem; }
+.form-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.form-input, .form-select {
+  background: var(--bg); border: 1px solid var(--border);
+  color: var(--white); padding: 0.75rem 1rem;
+  font-family: 'Instrument Sans', sans-serif; font-size: 0.92rem;
+  outline: none; transition: border-color 0.2s; border-radius: 0;
+}
+.form-input:focus, .form-select:focus { border-color: var(--green-bright); }
+.form-select option { background: var(--surface2); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.btn-submit {
+  width: 100%; padding: 0.9rem; font-size: 1rem; font-weight: 700;
+  font-family: 'Instrument Sans', sans-serif;
+  background: var(--green); border: none; color: #fff;
+  cursor: pointer; transition: all 0.2s; margin-top: 0.5rem;
+}
+.btn-submit:hover { background: var(--green-bright); transform: translateY(-1px); box-shadow: 0 10px 30px rgba(34,197,94,0.25); }
+.form-note { font-size: 0.75rem; color: var(--muted); text-align: center; line-height: 1.5; }
+
+/* success state */
+.form-success {
+  display: none; text-align: center; padding: 3rem 2rem;
+  border: 1px solid var(--border2); background: rgba(34,197,94,0.05);
+}
+.form-success .big-check { font-size: 3.5rem; margin-bottom: 1rem; }
+.form-success h3 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.5rem; margin-bottom: 0.5rem; }
+.form-success p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border); padding: 2rem 3.5rem;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+}
+.foot-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; }
+.foot-logo span { color: var(--green-bright); }
+footer p { color: var(--muted); font-size: 0.78rem; }
+
+/* ── SCROLL REVEAL ── */
+.reveal { opacity:0; transform:translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ── HAMBURGER ── */
+.hamburger {
+  display: none; flex-direction: column; justify-content: center;
+  gap: 5px; cursor: pointer; background: none; border: none; padding: 4px;
+}
+.hamburger span {
+  display: block; width: 22px; height: 2px;
+  background: var(--white); border-radius: 2px; transition: all 0.3s;
+}
+.hamburger.open span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2){ opacity:0; }
+.hamburger.open span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu {
+  display: none; position: fixed;
+  top: 60px; left: 0; right: 0; z-index: 490;
+  background: rgba(5,12,8,0.98);
+  border-bottom: 1px solid var(--border2);
+  backdrop-filter: blur(20px);
+  flex-direction: column; padding: 1.5rem 2rem; gap: 0;
+  animation: slideDown 0.25s ease;
+}
+.mobile-menu.open { display: flex; }
+@keyframes slideDown {
+  from { opacity:0; transform:translateY(-10px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.mobile-menu a {
+  color: var(--muted); text-decoration: none;
+  font-size: 1rem; font-weight: 500;
+  padding: 1rem 0; border-bottom: 1px solid var(--border);
+  transition: color 0.2s; display: block;
+}
+.mobile-menu a:hover { color: var(--white); }
+.mob-cta-btn {
+  display: block; margin-top: 1rem;
+  background: var(--green); border: none; color: #fff;
+  padding: 0.85rem; font-family: 'Instrument Sans', sans-serif;
+  font-size: 1rem; font-weight: 700; cursor: pointer;
+  border-radius: 4px; text-align: center; width: 100%;
+  transition: background 0.2s;
+}
+.mob-cta-btn:hover { background: var(--green-bright); }
+
+/* ── TABLET ── */
+@media(max-width:1024px){
+  nav { padding: 1rem 2rem; }
+  .section { padding: 5rem 2rem; }
+  .calc-band, .signup-band { padding: 5rem 2rem; }
+  .steps-grid { grid-template-columns: repeat(2,1fr); }
+  .calc-inner { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .signup-inner { grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .perks-grid { grid-template-columns: repeat(2,1fr); }
+  .examples-grid { grid-template-columns: repeat(2,1fr); }
+}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  .hero { padding: 95px 1.2rem 3.5rem; }
+  h1 { line-height: 1.05; margin-bottom: 1.2rem; }
+  .h1-top { font-size: clamp(1rem, 5vw, 1.6rem); }
+  .h1-mid { flex-wrap: wrap; justify-content: center; gap: 0.25rem; }
+  .h1-arrow { font-size: clamp(1.4rem, 6vw, 2rem); }
+  .h1-money { padding: 0.06em 0.28em; border-radius: 4px; }
+  .h1-cash { font-size: clamp(1.8rem, 8vw, 3rem); }
+  .money-shimmer { font-size: clamp(0.8rem, 3vw, 1.2rem); }
+  .h1-bottom { font-size: clamp(1.2rem, 6vw, 2rem); letter-spacing: 0.02em; }
+  .badge { font-size: 0.65rem; padding: 0.3rem 0.8rem; margin-bottom: 1.2rem; }
+  .hero-sub { font-size: 0.97rem; margin-bottom: 0.8rem; }
+  .hero-sub2 { font-size: 0.85rem; margin-bottom: 2rem; }
+  .btn-big { padding: 0.85rem 1.8rem; font-size: 0.95rem; width: 100%; text-align: center; }
+  .hero-btns { flex-direction: column; align-items: stretch; max-width: 340px; margin: 0 auto; }
+  .hero-stats { flex-wrap: wrap; max-width: 100%; }
+  .hero-stats .stat { flex: 1 1 calc(50% - 1px); }
+  .hero-stats .stat:nth-child(2) { border-right: none; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .calc-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .signup-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .perks-grid { grid-template-columns: 1fr; }
+  .examples-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .section { padding: 3.5rem 1.2rem; }
+  .calc-band, .signup-band { padding: 3.5rem 1.2rem; }
+  .faq-wrap { max-width: 100%; }
+  footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; gap: 0.5rem; }
+  .signup-left { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">Earn<span>Shake</span></div>
+  <ul class="nav-links">
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#earnings">Earnings</a></li>
+    <li><a href="#trust">Why Trust Us</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Get Started →</button>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#how" onclick="toggleMenu()">How It Works</a>
+  <a href="#earnings" onclick="toggleMenu()">Earnings</a>
+  <a href="#trust" onclick="toggleMenu()">Why Trust Us</a>
+  <a href="#faq" onclick="toggleMenu()">FAQ</a>
+  <button class="mob-cta-btn" onclick="toggleMenu();document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Get Started →</button>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-grid"></div>
+  <div class="floaters" id="floaters"></div>
+
+  <div class="badge"><div class="badge-dot"></div> For US College Students Only</div>
+
+  <h1>
+    <span class="h1-top">Your Handshake AI Account</span><br>
+    <span class="h1-mid">
+      <span class="h1-arrow">→</span>
+      <span class="h1-money">
+        <span class="money-shimmer">$$$</span>
+        <span class="h1-cash">Real Cash</span>
+        <span class="money-shimmer">$$$</span>
+      </span>
+    </span><br>
+    <span class="h1-bottom">Every. <span class="h1-single">Single.</span> Week.</span>
+  </h1>
+
+  <p class="hero-sub">
+    You already have a <strong>Handshake AI account</strong>. You're probably not using it to its full potential. We manage it for you and send you <strong>40% of everything it earns</strong> — no work required.
+  </p>
+
+  <p class="hero-sub2">
+    Our team handles all the tasks. You just connect your account, sit back, and get paid weekly via Venmo, Zelle, or CashApp.
+  </p>
+
+  <div class="hero-btns">
+    <button class="btn-big btn-green" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Start Earning Free →</button>
+    <button class="btn-big btn-out" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">See How It Works</button>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-n go">40%</div>
+      <div class="stat-l">Your cut</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n g">$0</div>
+      <div class="stat-l">Work from you</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n go">Weekly</div>
+      <div class="stat-l">Payout schedule</div>
+    </div>
+    <div class="stat">
+      <div class="stat-n g">24h</div>
+      <div class="stat-l">Setup time</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section reveal" id="how">
+  <div class="sec-label">Simple Process</div>
+  <h2 class="sec-title">4 Steps to Passive Income</h2>
+  <p class="sec-sub">From signup to first payout — the whole process takes less than 24 hours and requires zero ongoing effort from you.</p>
+
+  <div class="steps-grid">
+    <div class="step">
+      <div class="step-n">01</div>
+      <div class="step-icon">📝</div>
+      <h3>Sign Up Below</h3>
+      <p>Fill in the short form with your name, school email, and Handshake account info. Takes 2 minutes.</p>
+      <span class="tag">2 min</span>
+    </div>
+    <div class="step">
+      <div class="step-n">02</div>
+      <div class="step-icon">🔗</div>
+      <h3>We Connect Securely</h3>
+      <p>Our team sets up a secure, location-matched proxy for your account. Your personal info stays untouched.</p>
+      <span class="tag">We handle it</span>
+    </div>
+    <div class="step">
+      <div class="step-n">03</div>
+      <div class="step-icon">⚙️</div>
+      <h3>We Work, You Rest</h3>
+      <p>Our professional team completes AI training tasks through your account. You don't lift a finger.</p>
+      <span class="tag">Fully managed</span>
+    </div>
+    <div class="step">
+      <div class="step-n">04</div>
+      <div class="step-icon">💸</div>
+      <h3>Get Paid Weekly</h3>
+      <p>Every Friday we send your 40% cut straight to your Venmo, Zelle, or CashApp. No delays, no excuses.</p>
+      <span class="tag">Every Friday</span>
+    </div>
+  </div>
+</section>
+
+<!-- EARNINGS CALCULATOR -->
+<div class="calc-band reveal" id="earnings">
+  <div class="calc-inner">
+    <div>
+      <div class="sec-label">Earnings Estimator</div>
+      <h2 class="sec-title">See What You Could Make</h2>
+      <p style="color:var(--muted);font-size:0.97rem;line-height:1.72;margin-bottom:1.5rem;">
+        Earnings depend on how many tasks our team completes through your account each week. Most active accounts earn between <strong style="color:var(--white)">$80–$300/month</strong> completely passively.
+      </p>
+      <p style="color:var(--muted);font-size:0.92rem;line-height:1.7;">
+        The more we earn through your account, the more you make. We're motivated to maximize output because our 60% depends on it too.
+      </p>
+    </div>
+    <div class="calc-box">
+      <div class="calc-title">💰 Your Weekly Estimate</div>
+
+      <div class="calc-row">
+        <div class="calc-label">Tasks per week <span id="tasksVal">8 tasks</span></div>
+        <input type="range" min="2" max="20" value="8" id="tasksSlider" oninput="calcEarnings()">
+      </div>
+
+      <div class="calc-row">
+        <div class="calc-label">Avg. pay per task <span id="payVal">$25</span></div>
+        <input type="range" min="10" max="80" step="5" value="25" id="paySlider" oninput="calcEarnings()">
+      </div>
+
+      <div class="calc-result">
+        <div class="calc-result-row">
+          <span class="cr-label">Total earned per week</span>
+          <span class="cr-val" id="totalVal">$200</span>
+        </div>
+        <div class="calc-result-row">
+          <span class="cr-label">Your 40% cut (weekly)</span>
+          <span class="cr-val g" id="yourVal">$80</span>
+        </div>
+        <div class="calc-result-row">
+          <span class="cr-label">Your monthly estimate</span>
+          <span class="cr-val go" id="monthVal">$320</span>
+        </div>
+        <div class="cr-note">
+          <strong>Real numbers.</strong> Based on actual Handshake AI task rates which range from $10 to $80+ per task depending on complexity and your account's subject area.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REAL EARNINGS EXAMPLES -->
+<section class="section reveal">
+  <div class="sec-label">Student Examples</div>
+  <h2 class="sec-title">What Students Are Earning</h2>
+  <p class="sec-sub">Real results from students who connected their accounts. Names changed for privacy.</p>
+
+  <div class="examples-grid">
+    <div class="ex-card">
+      <div class="ex-top">
+        <div>
+          <div class="ex-name">Marcus T.</div>
+          <div class="ex-school">Biology Major · Penn State</div>
+        </div>
+        <span class="ex-badge">Active</span>
+      </div>
+      <div class="ex-jobs">Connected his account in October. Our team handles bio and science-related tasks. He gets weekly Venmo deposits without touching anything.</div>
+      <div class="ex-payout">
+        <div>
+          <div class="ex-payout-label">Monthly Earned</div>
+          <div class="ex-period">Passive income</div>
+        </div>
+        <div class="ex-amount">$284</div>
+      </div>
+    </div>
+
+    <div class="ex-card">
+      <div class="ex-top">
+        <div>
+          <div class="ex-name">Aisha K.</div>
+          <div class="ex-school">Poli-Sci & Law · Howard University</div>
+        </div>
+        <span class="ex-badge">Active</span>
+      </div>
+      <div class="ex-jobs">Humanities account. We complete writing, research, and document review tasks. She checks her balance every Friday morning.</div>
+      <div class="ex-payout">
+        <div>
+          <div class="ex-payout-label">Monthly Earned</div>
+          <div class="ex-period">Passive income</div>
+        </div>
+        <div class="ex-amount">$196</div>
+      </div>
+    </div>
+
+    <div class="ex-card">
+      <div class="ex-top">
+        <div>
+          <div class="ex-name">Jordan L.</div>
+          <div class="ex-school">Computer Science · UT Austin</div>
+        </div>
+        <span class="ex-badge">Active</span>
+      </div>
+      <div class="ex-jobs">CS account gets high-value technical tasks. Jordan literally does nothing — we handle everything and he pockets 40% every week.</div>
+      <div class="ex-payout">
+        <div>
+          <div class="ex-payout-label">Monthly Earned</div>
+          <div class="ex-period">Passive income</div>
+        </div>
+        <div class="ex-amount">$340</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY TRUST US -->
+<section class="section reveal" id="trust">
+  <div class="sec-label">Why Students Trust EarnShake</div>
+  <h2 class="sec-title">Your Account Is Safe With Us</h2>
+  <p class="sec-sub">We know giving account access is a big deal. Here's exactly how we protect you.</p>
+
+  <div class="perks-grid">
+    <div class="perk">
+      <div class="perk-icon">🌐</div>
+      <h3>Location-Matched Proxies</h3>
+      <p>We access your account through a residential proxy that matches your exact city and state — so Handshake AI never sees anything unusual.</p>
+    </div>
+    <div class="perk">
+      <div class="perk-icon">🔒</div>
+      <h3>We Never Change Your Info</h3>
+      <p>We don't touch your password, email, personal details, or university information. Your account stays exactly as you set it up.</p>
+    </div>
+    <div class="perk">
+      <div class="perk-icon">📊</div>
+      <h3>Full Earnings Transparency</h3>
+      <p>Every week you get a breakdown: which tasks were completed, what they paid, and exactly how your 40% was calculated. No surprises.</p>
+    </div>
+    <div class="perk">
+      <div class="perk-icon">💸</div>
+      <h3>Guaranteed Weekly Payout</h3>
+      <p>Your 40% hits your Venmo, Zelle, or CashApp every Friday — even if the task was completed on Monday. We hold nothing back.</p>
+    </div>
+    <div class="perk">
+      <div class="perk-icon">🚪</div>
+      <h3>Leave Anytime, No Penalty</h3>
+      <p>Want out? Text us and access is revoked within the hour. Any earned balance you haven't received yet will still be paid out in full.</p>
+    </div>
+    <div class="perk">
+      <div class="perk-icon">🎓</div>
+      <h3>Built for US Students</h3>
+      <p>This is designed for students at US universities with active Handshake AI accounts — including international students on F-1 and J-1 visas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section reveal" id="faq">
+  <div class="sec-label">FAQ</div>
+  <h2 class="sec-title">Questions Students Ask</h2>
+
+  <div class="faq-wrap">
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Do I have to do any of the actual work? <span class="arr">+</span></div>
+      <div class="faq-a">Not at all. Our team of professional writers and researchers handles 100% of the tasks completed through your account. Your only job is to sign up and collect your weekly payment.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Is this against Handshake AI's terms? <span class="arr">+</span></div>
+      <div class="faq-a">We operate carefully and securely. Every account is accessed through a <strong>residential proxy that matches your location</strong>, so activity appears normal. We manage volume to avoid triggering any flags on your account.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Why do you take 60% and I only get 40%? <span class="arr">+</span></div>
+      <div class="faq-a">Our 60% covers residential proxy costs, the wages of our professional writers who do all the actual work, platform operations, and client support. You provide the account — we provide everything else. <strong>You earn $0 effort money</strong>, we earn $0 without your account.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">How much can I realistically earn per month? <span class="arr">+</span></div>
+      <div class="faq-a">Most students earn between <strong>$80 and $350/month</strong> depending on their account's subject area and task availability. STEM and technical accounts tend to earn more. Use the calculator above to estimate your specific earnings.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">How do I get paid? <span class="arr">+</span></div>
+      <div class="faq-a">Every Friday we send your earnings via <strong>Venmo, Zelle, or CashApp</strong> — whichever you prefer. You'll also receive a weekly earnings summary showing exactly what was completed and what you earned.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">Can I stop whenever I want? <span class="arr">+</span></div>
+      <div class="faq-a">Yes, absolutely. No contracts, no lock-in period, no cancellation fees. Just message us and we'll stop accessing your account within the hour. Any unpaid earnings will still be sent on the next Friday payout.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">I'm an international student on F-1 visa — can I still join? <span class="arr">+</span></div>
+      <div class="faq-a">Yes. Since you're not performing any work yourself, this is passive income from an account — not employment. However, we always recommend checking with your university's DSO office if you have specific visa concerns.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNUP FORM -->
+<div class="signup-band" id="signup">
+  <div class="signup-inner">
+    <div class="signup-left">
+      <div class="sec-label">Get Started Today</div>
+      <h2>Start Earning From Your Account <span>This Week</span></h2>
+      <p>Sign up takes 2 minutes. We'll reach out within 24 hours to get your account set up and earning.</p>
+      <ul class="checklist">
+        <li>No work required from you</li>
+        <li>40% of all earnings sent every Friday</li>
+        <li>Secure, location-matched proxy access</li>
+        <li>Full earnings breakdown each week</li>
+        <li>Cancel anytime, no penalties</li>
+        <li>Works for undergrad, grad, and PhD students</li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="signup-form" id="signupForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input class="form-input" type="text" placeholder="Marcus" id="fFirst">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input class="form-input" type="text" placeholder="Thompson" id="fLast">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">University Email (.edu)</label>
+          <input class="form-input" type="email" placeholder="you@university.edu" id="fEmail">
+        </div>
+        <div class="form-group">
+          <label class="form-label">University</label>
+          <input class="form-input" type="text" placeholder="e.g. Penn State University" id="fSchool">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Major / Field</label>
+            <input class="form-input" type="text" placeholder="e.g. Biology" id="fMajor">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Student Level</label>
+            <select class="form-select" id="fLevel">
+              <option value="">Select...</option>
+              <option>Undergraduate</option>
+              <option>Masters Student</option>
+              <option>PhD Student</option>
+              <option>Postdoc</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Preferred Payout Method</label>
+          <select class="form-select" id="fPayout">
+            <option value="">Select...</option>
+            <option>Venmo</option>
+            <option>Zelle</option>
+            <option>CashApp</option>
+          </select>
+        </div>
+        <button class="btn-submit" id="submitBtn" onclick="submitForm()">Send My Info — Start Earning →</button>
+        <p class="form-note">By signing up you agree to share managed access to your Handshake AI account. We never change your personal info or credentials. Cancel anytime.</p>
+      </div>
+
+      <div class="form-success" id="formSuccess">
+        <div class="big-check">✅</div>
+        <h3>You're on the list!</h3>
+        <p>We'll email you within <strong>24 hours</strong> to get your account connected and earning. Check your .edu inbox — including spam.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">Earn<span>Shake</span></div>
+  <p>© 2025 EarnShake · Passive income for US college students</p>
+  <p>contact@earnshake.io</p>
+</footer>
+
+<script>
+// ── GOOGLE SHEETS ENDPOINT ── 
+// PASTE YOUR APPS SCRIPT WEB APP URL BELOW
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbxbzX5xaOu-VHI-zpI3DSuWAC5-EkZjWeWcYK8xR3H36gCmku6-dihghVMPbred55x6/exec';
+
+// Floating dollars
+const floaters = document.getElementById('floaters');
+for(let i=0;i<20;i++){
+  const el = document.createElement('div');
+  el.className='floater';
+  el.textContent = ['$','$','$','💵','$'][Math.floor(Math.random()*5)];
+  el.style.cssText = `left:${Math.random()*100}%;font-size:${0.8+Math.random()*1.5}rem;animation-duration:${14+Math.random()*16}s;animation-delay:${-Math.random()*20}s;`;
+  floaters.appendChild(el);
+}
+
+// Hamburger menu
+function toggleMenu(){
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// Calculator
+function calcEarnings(){
+  const tasks = parseInt(document.getElementById('tasksSlider').value);
+  const pay = parseInt(document.getElementById('paySlider').value);
+  document.getElementById('tasksVal').textContent = tasks+' tasks';
+  document.getElementById('payVal').textContent = '$'+pay;
+  const total = tasks * pay;
+  const yours = total * 0.4;
+  const monthly = yours * 4.3;
+  document.getElementById('totalVal').textContent = '$'+total;
+  document.getElementById('yourVal').textContent = '$'+yours.toFixed(0);
+  document.getElementById('monthVal').textContent = '$'+monthly.toFixed(0);
+}
+
+// FAQ
+function toggleFaq(el){ el.classList.toggle('open'); }
+
+// Submit to Google Sheets
+async function submitForm(){
+  const first   = document.getElementById('fFirst').value.trim();
+  const last    = document.getElementById('fLast').value.trim();
+  const email   = document.getElementById('fEmail').value.trim();
+  const school  = document.getElementById('fSchool').value.trim();
+  const major   = document.getElementById('fMajor').value.trim();
+  const level   = document.getElementById('fLevel').value;
+  const payout  = document.getElementById('fPayout').value;
+
+  // Validation
+  if(!first||!last||!email||!school||!major||!level||!payout){
+    showError('Please fill in all fields.'); return;
+  }
+  if(!email.includes('.edu')){
+    showError('Please use your university .edu email address.'); return;
+  }
+
+  // Loading state
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  clearError();
+
+  const params = new URLSearchParams({
+    first, last, email, school, major, level, payout,
+    timestamp: new Date().toLocaleString()
+  });
+
+  try {
+    const res = await fetch(SHEET_URL + '?' + params.toString(), {
+      method: 'GET',
+      mode: 'no-cors'
+    });
+    // no-cors fetch to Apps Script always succeeds silently
+    document.getElementById('signupForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  } catch(err) {
+    showError('Something went wrong. Please try again.');
+    btn.disabled = false;
+    btn.textContent = 'Send My Info — Start Earning →';
+  }
+}
+
+function showError(msg){
+  let el = document.getElementById('formError');
+  if(!el){ el = document.createElement('p'); el.id='formError';
+    el.style.cssText='color:#f87171;font-size:0.82rem;text-align:center;margin-top:0.5rem;';
+    document.getElementById('submitBtn').after(el); }
+  el.textContent = msg;
+}
+function clearError(){
+  const el = document.getElementById('formError');
+  if(el) el.textContent='';
+}
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
